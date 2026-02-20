@@ -135,6 +135,7 @@ kubectl apply -f frontend/frontend-deployment.yaml -n ecommerce
 kubectl apply -f frontend/frontend-service.yaml -n ecommerce
 
 ```
+![alt text](<Screenshot 2026-02-20 002555.png>)
 
 ### Step 3: Verify Pods, Services & Metrics
 
