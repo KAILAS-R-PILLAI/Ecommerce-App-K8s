@@ -264,13 +264,11 @@ kubectl port-forward -n monitoring svc/monitoring-kube-prometheus-prometheus 909
 
 ![Custom Dashboard Created Using Grafana](<Screenshot 2026-02-20 002323.png>)
 
-Pre-Built Dashboards in Grafana
-
-When you install the `kube-prometheus-stack` using Helm, Grafana comes with **pre-configured dashboards** that allow you to monitor your Kubernetes cluster and workloads without any extra setup.
-
 ---
 
 ## Pre-Built Dashboards
+
+When you install the `kube-prometheus-stack` using Helm, Grafana comes with **pre-configured dashboards** that allow you to monitor your Kubernetes cluster and workloads without any extra setup.
 
 1. **Kubernetes / Cluster Overview**
    - Go to **Dashboards → Browse → Kubernetes / Cluster**.
