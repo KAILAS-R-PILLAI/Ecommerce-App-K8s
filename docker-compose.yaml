@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongo:
+    image: mongo:6.0
+    container_name: ecommerce_mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - ecommerce_network
+
+  
+
+  # Backend API
+  backend:
+    build: ./backend
+    container_name: ecommerce_backend
+    restart: always
+    env_file:
+    - ./backend/.env 
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+    networks:
+      - ecommerce_network
+
+  # Frontend React App
+  frontend:
+    build: ./frontend
+    container_name: ecommerce_frontend
+    restart: always
+    ports:
+      - "3070:80"
+    depends_on:
+      - backend
+    networks:
+      - ecommerce_network
+
+volumes:
+  mongo_data:
+
+networks:
+  ecommerce_network:
+    driver: bridge
